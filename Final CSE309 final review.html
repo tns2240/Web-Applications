@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Posting - Smart Job Portal</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+        }
+
+        h2 {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Online Job Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="#">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="#">Employers</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="#">Post a Job</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Post a New Job</h2>
+        <div class="card p-4">
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" class="form-control" placeholder="Enter Job Title">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Job Category</label>
+                        <select class="form-select">
+                            <option selected>Choose a category...</option>
+                            <option>Software Development</option>
+                            <option>Marketing</option>
+                            <option>Finance</option>
+                            <option>Design</option>
+                            <option>Human Resources</option>
+                            <option>Writing & Editing</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Job Type</label>
+                        <select class="form-select">
+                            <option selected>Select Type...</option>
+                            <option>Full-Time</option>
+                            <option>Part-Time</option>
+                            <option>Internship</option>
+                            <option>Freelance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Job Location</label>
+                    <input type="text" class="form-control" placeholder="Enter Location">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Job Description</label>
+                    <textarea class="form-control" rows="3" placeholder="Describe the job..."></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Job Requirements (Education & Skills)</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter educational qualifications and required skills..."></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Salary (Optional)</label>
+                    <input type="text" class="form-control" placeholder="Enter Salary Range">
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Post Job</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Featured Job Listings</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Engineer</h5>
+                        <p class="card-text">We are looking for a passionate software engineer to develop and maintain web applications.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Uttara North, Dhaka</li>
+                            <li><strong>Type:</strong> Part-Time</li>
+                            <li><strong>Category:</strong> Software Development</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Marketing Manager</h5>
+                        <p class="card-text">Join our marketing team to strategize and execute impactful digital campaigns.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Remote</li>
+                            <li><strong>Type:</strong> Full-Time</li>
+                            <li><strong>Category:</strong> Marketing</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">UX/UI Designer</h5>
+                        <p class="card-text">Seeking a creative UX/UI designer to design user-friendly interfaces for mobile and web apps.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Malibagh, Dhaka</li>
+                            <li><strong>Type:</strong> Full-Time</li>
+                            <li><strong>Category:</strong> Design</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">HR Manager</h5>
+                        <p class="card-text">We are hiring an HR manager to oversee recruitment and employee relations.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Barisal Sadar, Barisal</li>
+                            <li><strong>Type:</strong> Full-Time</li>
+                            <li><strong>Category:</strong> Human Resources</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Content Writer</h5>
+                        <p class="card-text">Hiring skilled content writers to create SEO-friendly blogs and articles.</p>
+                        <ul>
+                            <li><strong>Location:</strong> Rajshahi City, Rajshahi</li>
+                            <li><strong>Type:</strong> Freelance</li>
+                            <li><strong>Category:</strong> Writing & Editing</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        &copy; 2025 Online Job Portal. All Rights Reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
