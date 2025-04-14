@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Quiz App</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5, #acb6e5);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quiz-container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      color: #4b7bec;
+    }
+
+    .question {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answers button {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #eee;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .answers button:hover {
+      background-color: #d6e6ff;
+      transform: scale(1.02);
+    }
+
+    .answers button.correct {
+      background-color: #a6e6a6 !important;
+      color: #0a4e0a;
+      font-weight: bold;
+    }
+
+    .answers button.wrong {
+      background-color: #f8baba !important;
+      color: #7a0000;
+      font-weight: bold;
+    }
+
+    #nextBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4b7bec;
+      color: white;
+      cursor: pointer;
+      display: none;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #nextBtn:hover {
+      background-color: #3867d6;
+      transform: scale(1.05);
+    }
+
+    #scoreBox {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>Interactive Quiz App</h1>
+    <div id="question" class="question">Loading question...</div>
+    <div id="answer-buttons" class="answers"></div>
+    <button id="nextBtn">Next</button>
+    <div id="scoreBox"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
