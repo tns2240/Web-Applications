@@ -126,7 +126,7 @@
                 }
 
                 // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
                 csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
                 return csv;
             } catch (e) {
@@ -139,6 +139,8 @@
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div治安
+
     <div class="container">
         <a class="navbar-brand" href="#">Online Job Portal</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -167,6 +169,10 @@
                         <li>
                             <button class="btn btn-outline-secondary w-100" id="darkModeToggle">Toggle Dark Mode</button>
                         </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <button class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#geminiModal">Gemini AI Chat</button>
+                        </li>
                     </ul>
                 </li>
                 <!-- End Settings Dropdown -->
@@ -174,6 +180,29 @@
         </div>
     </div>
 </nav>
+
+<!-- Gemini AI Modal -->
+<div class="modal fade" id="geminiModal" tabindex="-1" aria-labelledby="geminiModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="geminiModalLabel">Gemini AI Chat</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="geminiInput" class="form-label">Ask Gemini AI</label>
+                    <textarea class="form-control" id="geminiInput" rows="4" placeholder="Type your question or prompt..."></textarea>
+                </div>
+                <div id="geminiResponse" class="alert alert-info" style="display: none;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="geminiSubmit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <main class="container mt-5">
     <h2 class="text-center mb-4">Log In to Your Account</h2>
@@ -201,7 +230,7 @@
             </div>
             <button type="submit" name="submit" class="btn btn-success w-100">Log In</button>
             <div class="text-center mt-3">
-                <a href="#">Forgot password?</a> | <a href="Sign Up Page.html">Sign Up</a>
+                <a href="#">ForgotSector password?</a> | <a href="Sign Up Page.html">Sign Up</a>
             </div>
         </form>
     </div>
@@ -228,7 +257,55 @@
     });
 </script>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c10ad21e054545',t:'MTc0NjYyNDMxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c17ae4c8af6777',t:'MTc0NjYyODkwNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<!-- Gemini AI Integration Script -->
+<script>
+    document.getElementById("geminiSubmit").addEventListener("click", async function () {
+        const input = document.getElementById("geminiInput").value;
+        const responseDiv = document.getElementById("geminiResponse");
+
+        if (!input) {
+            responseDiv.style.display = "block";
+            responseDiv.className = "alert alert-warning";
+            responseDiv.textContent = "Please enter a prompt.";
+            return;
+        }
+
+        responseDiv.style.display = "block";
+        responseDiv.className = "alert alert-info";
+        responseDiv.textContent = "Loading...";
+
+        try {
+            // Note: In a production environment, the API key should be stored server-side or in environment variables
+            const apiKey = "AIzaSyB-HkGPA-kDgGg4cyjIvnHQKVxk0R9wDug";
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: input
+                        }]
+                    }]
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch response from Gemini AI.");
+            }
+
+            const data = await response.json();
+            const generatedText = data.candidates[0].content.parts[0].text;
+
+            responseDiv.className = "alert alert-success";
+            responseDiv.textContent = generatedText;
+        } catch (error) {
+            responseDiv.className = "alert alert-danger";
+            responseDiv.textContent = `Error: ${error.message}`;
+        }
+    });
+</script>
+
 </body>
 </html>
